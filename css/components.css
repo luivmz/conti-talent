@@ -482,3 +482,71 @@ select optgroup {
 }
 .step.is-current .step__num { background: var(--brand-500); color: white; }
 .step.is-done .step__num { background: var(--accent-emerald); color: white; }
+
+/* ==========================================================
+   RESPONSIVE — Components
+   ========================================================== */
+@media (max-width: 960px) {
+  .form-grid--2 { grid-template-columns: 1fr; }
+  .modal { width: min(560px, 94vw); padding: var(--space-5); max-height: 92vh; }
+}
+
+@media (max-width: 768px) {
+  /* KPIs */
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  .kpi { padding: var(--space-4); }
+  .kpi__value { font-size: 1.6rem; }
+  .kpi__label { font-size: 0.7rem; }
+
+  /* Filtros bar */
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+  .searchbar { max-width: 100%; }
+  .filters-bar .select { width: 100%; min-width: 0; }
+
+  /* Tablas con scroll horizontal */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table { min-width: 720px; }
+  .row-actions { flex-wrap: wrap; gap: 4px; }
+  .row-actions .btn { padding: 6px 10px; font-size: 0.78rem; }
+
+  /* Toasts */
+  .toast-stack {
+    right: var(--space-3);
+    left: var(--space-3);
+    bottom: var(--space-3);
+  }
+  .toast { min-width: 0; max-width: none; width: 100%; }
+
+  /* Modal full-width en mobile */
+  .modal { width: 96vw; padding: var(--space-4); border-radius: var(--radius-lg); }
+  .modal__head h3 { font-size: 1.1rem; }
+
+  /* Tabs scroll horizontal */
+  .tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* Botones */
+  .btn--lg { padding: 12px 22px; font-size: 0.95rem; }
+
+  /* Stepper compacto */
+  .stepper { gap: 6px; }
+  .step    { padding: 6px 10px; font-size: 0.78rem; }
+  .step__num { width: 18px; height: 18px; font-size: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .badge { font-size: 0.74rem; padding: 3px 8px; }
+  .input, .textarea, .select { font-size: 16px; /* evita zoom auto en iOS */ }
+}
