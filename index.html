@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conti Talent — Reclutamiento que destaca el talento</title>
+  <meta name="description" content="Plataforma de reclutamiento y evaluación: postula a las mejores ofertas y muestra tu mejor versión." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html" aria-label="Inicio Conti Talent">
+        <span class="brand__mark">C</span>
+        <span class="brand__name">Conti<span>Talent</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="index.html"     data-nav="index.html">Inicio</a>
+        <a href="areas.html"     data-nav="areas.html">Áreas</a>
+        <a href="ofertas.html"   data-nav="ofertas.html">Ofertas</a>
+        <a href="publicidad.html"data-nav="publicidad.html">Destacadas</a>
+        <a href="contacto.html"  data-nav="contacto.html">Contacto</a>
+        <span class="session-area" id="session-area"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero__inner">
+        <div class="anim-fade-up">
+          <span class="badge anim-pulse" style="margin-bottom: 16px;">⚡ Reclutamiento moderno</span>
+          <h1 class="hero__title">El talento adecuado, <em>en el lugar adecuado.</em></h1>
+          <p class="hero__lead">Conti Talent conecta a empresas con personas extraordinarias. Postula, resuelve evaluaciones y avanza por un proceso transparente y guiado.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary btn--lg" href="ofertas.html">Explorar ofertas</a>
+            <a class="btn btn--ghost btn--lg"   href="registro.html">Crear cuenta</a>
+          </div>
+        </div>
+        <aside class="hero__visual anim-scale" aria-hidden="true">
+          <div style="position:absolute;inset:24px;border-radius:20px;background:linear-gradient(135deg, rgba(99,102,241,0.25), rgba(236,72,153,0.18));border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);"></div>
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;">
+            <div style="font-family:'Fraunces',serif;font-size:5rem;line-height:1;background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent;">CT</div>
+            <div class="muted" style="margin-top:12px;letter-spacing:0.1em;text-transform:uppercase;font-size:0.85rem;">Conti Talent OS</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- KPI strip -->
+    <section class="container" style="margin-top: 16px;">
+      <div class="kpi-grid" id="home-stats"></div>
+    </section>
+
+    <!-- Áreas -->
+    <section class="section container">
+      <header class="section-heading">
+        <span class="section-eyebrow">Áreas laborales</span>
+        <h2>Encuentra tu lugar</h2>
+        <p class="muted">Explora oportunidades por industria y especialización.</p>
+      </header>
+      <div class="areas-grid" id="home-areas"></div>
+    </section>
+
+    <!-- Destacadas -->
+    <section class="section container">
+      <header class="section-heading">
+        <span class="section-eyebrow">Ofertas destacadas</span>
+        <h2>Las más buscadas esta semana</h2>
+      </header>
+      <div class="featured-grid" id="home-featured"></div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section container">
+      <header class="section-heading">
+        <span class="section-eyebrow">Cómo funciona</span>
+        <h2>De postulante a contratado en 5 pasos</h2>
+      </header>
+      <div class="feature-grid">
+        <article class="feature anim-fade-up delay-1">
+          <div class="feature__icon">📂</div>
+          <h3>Explora áreas</h3>
+          <p class="muted">Recorre las áreas y ofertas que se ajustan a tu perfil.</p>
+        </article>
+        <article class="feature anim-fade-up delay-2">
+          <div class="feature__icon">📝</div>
+          <h3>Registra tu perfil</h3>
+          <p class="muted">Crea tu cuenta y sube tu CV con un par de clics.</p>
+        </article>
+        <article class="feature anim-fade-up delay-3">
+          <div class="feature__icon">🎯</div>
+          <h3>Postula</h3>
+          <p class="muted">Aplica a tantas ofertas como quieras desde un solo lugar.</p>
+        </article>
+        <article class="feature anim-fade-up delay-4">
+          <div class="feature__icon">🧠</div>
+          <h3>Resuelve la evaluación</h3>
+          <p class="muted">Demuestra tus habilidades con cuestionarios automáticos.</p>
+        </article>
+        <article class="feature anim-fade-up delay-5">
+          <div class="feature__icon">🚀</div>
+          <h3>Avanza en el proceso</h3>
+          <p class="muted">Sigue tu estado en tiempo real: entrevistas, evaluaciones y decisión final.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <div class="brand">
+          <span class="brand__mark">C</span>
+          <span class="brand__name">Conti<span>Talent</span></span>
+        </div>
+        <p class="muted" style="margin-top:12px;max-width:320px;">Conectamos talento y oportunidades a través de procesos claros, justos y modernos.</p>
+      </div>
+      <div>
+        <h5>Producto</h5>
+        <a href="areas.html">Áreas</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="publicidad.html">Destacadas</a>
+      </div>
+      <div>
+        <h5>Empresa</h5>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Sobre nosotros</a>
+      </div>
+      <div>
+        <h5>Cuenta</h5>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="registro.html">Registrarse</a>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© 2026 Conti Talent</span>
+      <span>Hecho con cariño · Lima, Perú</span>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/areas.js"></script>
+  <script src="js/ofertas.js"></script>
+  <script src="js/postulantes.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/page-home.js"></script>
+</body>
+</html>
