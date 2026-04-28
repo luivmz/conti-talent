@@ -90,7 +90,7 @@
         UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Tipo de oferta' }), tipoSelect]),
         UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Modalidad' }), modSelect])
       ]),
-      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Facultad / Área' }), areaSelect]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Área' }), areaSelect]),
       UI.el('div', { class: 'form-grid form-grid--2' }, [
         UI.el('div', { class: 'field' }, [
           UI.el('label', { text: 'Ubicación' }),

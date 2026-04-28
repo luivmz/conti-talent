@@ -5,7 +5,7 @@
    ========================================================= */
 
 const Seed = (() => {
-  const SEED_FLAG = 'seeded_v3';
+  const SEED_FLAG = 'seeded_v4';
 
   const isSeeded   = () => Storage.read(SEED_FLAG, false) === true;
   const markSeeded = () => Storage.write(SEED_FLAG, true);
@@ -22,14 +22,16 @@ const Seed = (() => {
     { id: 'u8', nombre: 'Fiorella',      apellido: 'Rojas',       email: 'fiorella@example.com',  password: 'fiora123',  rol: 'postulante', activo: true, creadoEn: Date.now() - 86400000 * 8  }
   ]);
 
-  /* ---------- ÁREAS (Facultades + áreas administrativas) ---------- */
+  /* ---------- ÁREAS (mezcla de facultades y áreas administrativas) ---------- */
   const seedAreas = () => ([
-    { id: 'a1', nombre: 'Facultad de Ingeniería',         icono: '⚙️', descripcion: 'Sistemas, civil, industrial, mecatrónica y minas.',     color: '#6366f1' },
-    { id: 'a2', nombre: 'Facultad de Ciencias de la Empresa', icono: '📊', descripcion: 'Administración, contabilidad, marketing y negocios.', color: '#06b6d4' },
-    { id: 'a3', nombre: 'Facultad de Derecho',            icono: '⚖️', descripcion: 'Derecho corporativo, civil, penal y constitucional.',  color: '#8b5cf6' },
-    { id: 'a4', nombre: 'Facultad de Humanidades',        icono: '📚', descripcion: 'Comunicación, psicología y educación.',                color: '#ec4899' },
-    { id: 'a5', nombre: 'Facultad de Ciencias de la Salud', icono: '🩺', descripcion: 'Enfermería, psicología clínica y nutrición.',         color: '#10b981' },
-    { id: 'a6', nombre: 'Investigación y Desarrollo',     icono: '🔬', descripcion: 'Centros de investigación e innovación universitaria.', color: '#f59e0b' }
+    { id: 'a1', nombre: 'Ingeniería',                  icono: '⚙️', descripcion: 'Sistemas, civil, industrial, mecatrónica y minas.',           color: '#6366f1' },
+    { id: 'a2', nombre: 'Ciencias de la Empresa',      icono: '📊', descripcion: 'Administración, contabilidad, marketing y negocios.',         color: '#06b6d4' },
+    { id: 'a3', nombre: 'Derecho',                     icono: '⚖️', descripcion: 'Derecho corporativo, civil, penal y constitucional.',         color: '#8b5cf6' },
+    { id: 'a4', nombre: 'Humanidades',                 icono: '📚', descripcion: 'Comunicación, psicología y educación.',                       color: '#ec4899' },
+    { id: 'a5', nombre: 'Ciencias de la Salud',        icono: '🩺', descripcion: 'Enfermería, psicología clínica y nutrición.',                 color: '#10b981' },
+    { id: 'a6', nombre: 'Investigación y Desarrollo',  icono: '🔬', descripcion: 'Centros de investigación e innovación universitaria.',        color: '#f59e0b' },
+    { id: 'a7', nombre: 'Tecnología y Sistemas',       icono: '💻', descripcion: 'Equipo de TI institucional: infraestructura, soporte y software interno.', color: '#0ea5e9' },
+    { id: 'a8', nombre: 'Bienestar Universitario',     icono: '🤝', descripcion: 'Soporte estudiantil, deportes, cultura y atención psicopedagógica.',         color: '#f43f5e' }
   ]);
 
   /* ---------- OFERTAS (con campo `tipo`: Práctica | Trabajo) ---------- */
@@ -42,7 +44,9 @@ const Seed = (() => {
     { id: 'o6', titulo: 'Práctica Profesional · Derecho Civil',      tipo: 'Práctica', areaId: 'a3', modalidad: 'Híbrido',    ubicacion: 'Huancayo', vacantes: 2, destacada: false, descripcion: 'Apoyo al consultorio jurídico de la Facultad de Derecho.', requisitos: ['Egresado o bachiller en Derecho', 'Buen manejo de redacción'], beneficios: ['Subvención', 'Acompañamiento profesional'], creadaEn: Date.now() - 86400000 * 5 },
     { id: 'o7', titulo: 'Profesor de Comunicación Oral y Escrita',   tipo: 'Trabajo',  areaId: 'a4', modalidad: 'Presencial', ubicacion: 'Huancayo', vacantes: 2, destacada: false, descripcion: 'Curso transversal en pregrado para todas las facultades.', requisitos: ['Licenciado en Comunicación o Educación', 'Experiencia mínima 2 años'], beneficios: ['Plan docente', 'Becas para postgrado'], creadaEn: Date.now() - 86400000 * 8 },
     { id: 'o8', titulo: 'Asistente de Investigación · Salud Pública',tipo: 'Práctica', areaId: 'a5', modalidad: 'Híbrido',    ubicacion: 'Huancayo', vacantes: 2, destacada: false, descripcion: 'Apoyo a investigación de campo en proyectos de salud pública en Junín.', requisitos: ['Estudiante de Ciencias de la Salud', 'Estadística básica'], beneficios: ['Subvención', 'Co-autoría en publicaciones'], creadaEn: Date.now() - 86400000 * 9 },
-    { id: 'o9', titulo: 'Coordinador de Investigación',              tipo: 'Trabajo',  areaId: 'a6', modalidad: 'Presencial', ubicacion: 'Huancayo', vacantes: 1, destacada: false, descripcion: 'Lidera proyectos del Centro de Investigación de la Universidad Continental.', requisitos: ['Magíster o doctor', 'Publicaciones indexadas', 'Liderazgo de equipos'], beneficios: ['Sueldo competitivo', 'Asignación de proyectos'], creadaEn: Date.now() - 86400000 * 11 }
+    { id: 'o9',  titulo: 'Coordinador de Investigación',              tipo: 'Trabajo',  areaId: 'a6', modalidad: 'Presencial', ubicacion: 'Huancayo', vacantes: 1, destacada: false, descripcion: 'Lidera proyectos del Centro de Investigación de la Universidad Continental.', requisitos: ['Magíster o doctor', 'Publicaciones indexadas', 'Liderazgo de equipos'], beneficios: ['Sueldo competitivo', 'Asignación de proyectos'], creadaEn: Date.now() - 86400000 * 11 },
+    { id: 'o10', titulo: 'Práctica · Soporte de TI Universitario',    tipo: 'Práctica', areaId: 'a7', modalidad: 'Presencial', ubicacion: 'Huancayo', vacantes: 3, destacada: true,  descripcion: 'Apoyo al equipo institucional de Tecnología y Sistemas: soporte a usuarios, gestión de equipos y mantenimiento de aulas digitales.', requisitos: ['Estudios técnicos o universitarios en TI', 'Conocimientos de redes y hardware', 'Buena atención al usuario'], beneficios: ['Subvención económica', 'Certificación de prácticas', 'Plan de mentoría'], creadaEn: Date.now() - 86400000 * 1 },
+    { id: 'o11', titulo: 'Coordinador de Bienestar Estudiantil',      tipo: 'Trabajo',  areaId: 'a8', modalidad: 'Presencial', ubicacion: 'Huancayo', vacantes: 1, destacada: false, descripcion: 'Lidera el equipo de Bienestar Universitario: programas de salud mental, deportes y vida estudiantil.', requisitos: ['Profesional en Psicología, Educación o afín', '3+ años en gestión estudiantil', 'Habilidades de liderazgo'], beneficios: ['Plan de carrera', 'Capacitación continua', 'Contrato estable'], creadaEn: Date.now() - 86400000 * 4 }
   ]);
 
   /* ---------- PREGUNTAS ---------- */
@@ -128,6 +132,7 @@ const Seed = (() => {
     Storage.write('metricas',    seedMetricas());
     Storage.clear('seeded_v1');
     Storage.clear('seeded_v2');
+    Storage.clear('seeded_v3');
     markSeeded();
   };
 

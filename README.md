@@ -4,6 +4,19 @@ Plataforma oficial de **reclutamiento y evaluación** de la Universidad Continen
 
 Construida con HTML5 semántico, CSS3 moderno y JavaScript vanilla — **sin frameworks, sin código inline**. Lista para migrar a Spring Boot + Thymeleaf.
 
+---
+
+## 🚀 Cómo ejecutar
+
+```bash
+# Con Python
+python -m http.server 8080
+# o con Node
+npx serve .
+```
+
+Abre `http://localhost:8080` y entra por `index.html`.
+
 ### Cuentas demo (semilla `seeded_v3`)
 
 | Rol | Email | Password |
