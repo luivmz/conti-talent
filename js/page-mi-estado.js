@@ -23,7 +23,12 @@
     }
 
     items.forEach((p) => {
-      const oferta = Ofertas.get(p.ofertaId);
+      const oferta    = Ofertas.get(p.ofertaId);
+      const yaRindio  = Postulantes.hasRespuestas(p);
+      const ctaButton = yaRindio
+        ? UI.el('a', { href: `mis-respuestas.html?postulante=${p.id}`, class: 'btn btn--ghost', text: 'Ver mis respuestas' })
+        : UI.el('a', { href: `evaluacion.html?postulante=${p.id}`,    class: 'btn btn--primary', text: 'Realizar evaluación' });
+
       const card = UI.el('article', { class: 'card' }, [
         UI.el('header', { class: 'flex between gap-3' }, [
           UI.el('div', {}, [
@@ -38,7 +43,7 @@
             UI.el('div', { class: 'muted', text: 'Tu puntaje' }),
             UI.el('div', { class: 'kpi__value', style: 'font-size: 1.6rem;', text: `${p.puntaje} pts` })
           ]),
-          UI.el('a', { href: `evaluacion.html?postulante=${p.id}`, class: 'btn btn--ghost', text: 'Ver / repetir evaluación' })
+          ctaButton
         ])
       ]);
       wrap.appendChild(card);

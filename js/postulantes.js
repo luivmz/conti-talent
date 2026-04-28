@@ -48,6 +48,21 @@ const Postulantes = (() => {
     update(id, updates);
   };
 
+  /**
+   * Guarda el resultado completo de una evaluación: puntaje + respuestas marcadas.
+   * Esto permite revisar después qué respondió el postulante (vista solo lectura).
+   */
+  const saveEvaluation = (id, puntaje, respuestas) => {
+    update(id, {
+      puntaje,
+      respuestas,
+      estado: puntaje >= 70 ? 'APROBADO_TECNICO' : 'EN_EVALUACION'
+    });
+  };
+
+  const hasRespuestas = (postulante) =>
+    postulante && postulante.respuestas && Object.keys(postulante.respuestas).length > 0;
+
   const remove = (id) => {
     Storage.write(ENTITY, list().filter((p) => p.id !== id));
   };
@@ -61,7 +76,7 @@ const Postulantes = (() => {
     return [...data].sort((a, b) => b.puntaje - a.puntaje);
   };
 
-  return { list, get, byOferta, byUsuario, create, update, setEstado, setPuntaje, remove, softDelete, ranking };
+  return { list, get, byOferta, byUsuario, create, update, setEstado, setPuntaje, saveEvaluation, hasRespuestas, remove, softDelete, ranking };
 })();
 
 window.Postulantes = Postulantes;

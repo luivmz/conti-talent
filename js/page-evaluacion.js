@@ -1,5 +1,7 @@
 /* =========================================================
    page-evaluacion.js — Cuestionario asociado a oferta
+   La evaluación se rinde UNA sola vez. Si ya se rindió,
+   se redirige a la vista de respuestas (solo lectura).
    ========================================================= */
 
 (() => {
@@ -18,6 +20,13 @@
       setTimeout(() => window.location.href = 'index.html', 800);
       return;
     }
+
+    // Si ya rindió, no se permite volver a hacerlo: vamos a la vista de respuestas.
+    if (Postulantes.hasRespuestas(postulante)) {
+      window.location.replace(`mis-respuestas.html?postulante=${postulante.id}`);
+      return;
+    }
+
     oferta    = Ofertas.get(postulante.ofertaId);
     preguntas = Evaluacion.byOferta(oferta.id);
 
@@ -78,9 +87,9 @@
       return;
     }
     const result = Evaluacion.calificar(oferta.id, respuestas);
-    Postulantes.setPuntaje(postulante.id, result.puntaje);
+    Postulantes.saveEvaluation(postulante.id, result.puntaje, { ...respuestas });
 
-    const m = UI.openModal({
+    UI.openModal({
       title: 'Resultado de tu evaluación',
       content: UI.el('div', {}, [
         UI.el('p', { class: 'muted', text: 'Tu evaluación fue calificada automáticamente. Estos son tus resultados:' }),
@@ -96,8 +105,9 @@
         ]),
         UI.el('p', { style: 'margin-top: 16px;', text: result.puntaje >= 70 ? '¡Has aprobado la evaluación técnica! Tu estado se actualizó.' : 'Has terminado la evaluación. Tu puntaje será revisado.' })
       ]),
-      footer: UI.el('footer', { style: 'display:flex;justify-content:flex-end;margin-top:16px;' }, [
-        UI.el('a', { href: 'mi-estado.html', class: 'btn btn--primary', text: 'Ver mi estado' })
+      footer: UI.el('footer', { style: 'display:flex;justify-content:flex-end;gap:8px;margin-top:16px;' }, [
+        UI.el('a', { href: `mis-respuestas.html?postulante=${postulante.id}`, class: 'btn btn--ghost', text: 'Ver mis respuestas' }),
+        UI.el('a', { href: 'mi-estado.html', class: 'btn btn--primary', text: 'Ir a mi estado' })
       ])
     });
   };
