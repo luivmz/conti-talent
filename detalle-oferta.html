@@ -22,7 +22,7 @@
       </a>
       <nav class="primary-nav">
         <a href="index.html">Inicio</a>
-        <a href="areas.html">Áreas</a>
+        <a href="areas.html">Facultades</a>
         <a href="ofertas.html" class="is-active">Ofertas</a>
         <a href="publicidad.html">Publicidad</a>
         <a href="contacto.html">Contacto</a>
@@ -31,13 +31,16 @@
     </div>
   </header>
 
-  <main id="detalle-main" class="container" style="padding: 48px 24px 96px;">
-    <a href="ofertas.html" class="btn btn--ghost btn--sm" style="margin-bottom: 16px;">← Volver a ofertas</a>
+  <main id="detalle-main" class="container page-shell">
+    <a href="ofertas.html" class="btn btn--ghost btn--sm detalle-back-btn">← Volver a ofertas</a>
 
     <article class="oferta-detail anim-fade-up">
       <header class="oferta-detail__head">
         <div>
-          <span class="badge" id="detalle-area">—</span>
+          <div class="flex gap-2 flex-wrap mb-2">
+            <span class="badge" id="detalle-tipo">—</span>
+            <span class="badge" id="detalle-area">—</span>
+          </div>
           <h1 class="oferta-detail__title" id="detalle-title">—</h1>
           <div class="oferta-detail__meta">
             <span>📍 <span id="detalle-ubicacion">—</span></span>
@@ -54,24 +57,24 @@
           <h3>Sobre el rol</h3>
           <p id="detalle-descripcion" class="muted">—</p>
 
-          <h3 style="margin-top:24px;">Requisitos</h3>
-          <ul id="detalle-requisitos" class="muted" style="display:grid;gap:8px;list-style:disc;padding-left:20px;"></ul>
+          <h3 class="mt-5">Requisitos</h3>
+          <ul id="detalle-requisitos" class="muted list-disc"></ul>
 
-          <h3 style="margin-top:24px;">Beneficios</h3>
-          <ul id="detalle-beneficios" class="muted" style="display:grid;gap:8px;list-style:disc;padding-left:20px;"></ul>
+          <h3 class="mt-5">Beneficios</h3>
+          <ul id="detalle-beneficios" class="muted list-disc"></ul>
         </section>
 
         <aside class="card">
           <h3>Proceso de selección</h3>
-          <ol class="muted" style="display:grid;gap:12px;list-style:none;padding:0;margin:0;">
+          <ol class="muted list-grid">
             <li><strong>1.</strong> Postulación con CV</li>
             <li><strong>2.</strong> Evaluación técnica</li>
             <li><strong>3.</strong> Entrevista</li>
             <li><strong>4.</strong> Evaluación psicológica</li>
             <li><strong>5.</strong> Decisión final</li>
           </ol>
-          <hr style="border:0;border-top:1px solid var(--color-border);margin:16px 0;" />
-          <p class="soft" style="font-size:.85rem;">Tras postular, podrás resolver la evaluación técnica. Tu estado se actualizará en tu panel.</p>
+          <hr class="hr-soft" />
+          <p class="soft text-sm">Tras postular, podrás resolver la evaluación técnica. Tu estado se actualizará en tu panel personal.</p>
         </aside>
       </div>
     </article>
@@ -79,7 +82,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__bottom">
-      <span>© 2026 Conti Talent</span>
+      <span>© 2026 Universidad Continental · Conti Talent</span>
     </div>
   </footer>
 

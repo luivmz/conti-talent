@@ -31,11 +31,13 @@
     }
     items.forEach((o) => {
       const a = Areas.get(o.areaId);
+      const tipoCls = o.tipo === 'Práctica' ? 'badge--evaluacion' : 'badge--aprobado-tecnico';
       const tr = UI.el('tr', {}, [
         UI.el('td', {}, [
-          UI.el('div', { text: o.titulo, style: 'font-weight: 500;' }),
-          UI.el('div', { class: 'soft', style: 'font-size: 0.8rem;', text: o.descripcion?.slice(0, 80) || '' })
+          UI.el('div', { class: 'font-medium', text: o.titulo }),
+          UI.el('div', { class: 'soft text-xs', text: o.descripcion?.slice(0, 80) || '' })
         ]),
+        UI.el('td', {}, [UI.el('span', { class: `badge ${tipoCls}`, text: o.tipo || '—' })]),
         UI.el('td', {}, [UI.el('span', { class: 'badge', text: a?.nombre || '—' })]),
         UI.el('td', { text: o.modalidad }),
         UI.el('td', { text: o.vacantes }),
@@ -68,6 +70,13 @@
       modSelect.appendChild(opt);
     });
 
+    const tipoSelect = UI.el('select', { class: 'select', name: 'tipo' });
+    Ofertas.TIPOS.forEach((t) => {
+      const opt = UI.el('option', { value: t, text: t });
+      if ((oferta && oferta.tipo === t) || (!oferta && t === 'Trabajo')) opt.selected = true;
+      tipoSelect.appendChild(opt);
+    });
+
     const reqInput = UI.el('textarea', { class: 'textarea', name: 'requisitos', placeholder: 'Un requisito por línea', text: (oferta?.requisitos || []).join('\n') });
     const benInput = UI.el('textarea', { class: 'textarea', name: 'beneficios', placeholder: 'Un beneficio por línea',  text: (oferta?.beneficios || []).join('\n') });
 
@@ -78,9 +87,10 @@
         UI.el('div', { class: 'error' })
       ]),
       UI.el('div', { class: 'form-grid form-grid--2' }, [
-        UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Área' }), areaSelect]),
+        UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Tipo de oferta' }), tipoSelect]),
         UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Modalidad' }), modSelect])
       ]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Facultad / Área' }), areaSelect]),
       UI.el('div', { class: 'form-grid form-grid--2' }, [
         UI.el('div', { class: 'field' }, [
           UI.el('label', { text: 'Ubicación' }),

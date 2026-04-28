@@ -35,7 +35,7 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section__label">Reclutamiento</div>
-        <a class="sidebar-link" href="admin-areas.html"><span>🗂️</span> Áreas</a>
+        <a class="sidebar-link" href="admin-areas.html"><span>🗂️</span> Facultades</a>
         <a class="sidebar-link is-active" href="admin-ofertas.html"><span>💼</span> Ofertas</a>
         <a class="sidebar-link" href="admin-preguntas.html"><span>❓</span> Preguntas</a>
       </div>
@@ -53,8 +53,8 @@
     <main class="app-main">
       <header class="page-header anim-fade-up">
         <div>
-          <h1 class="page-header__title">Ofertas laborales</h1>
-          <p class="page-header__sub">Gestiona los puestos abiertos por área.</p>
+          <h1 class="page-header__title">Ofertas laborales y prácticas</h1>
+          <p class="page-header__sub">Gestiona los puestos abiertos por facultad. Marca cada oferta como Práctica o Trabajo.</p>
         </div>
         <button class="btn btn--primary" id="btn-nueva-oferta">+ Nueva oferta</button>
       </header>
@@ -64,7 +64,7 @@
           <input class="input" id="search-oferta" type="search" placeholder="Buscar oferta..." />
         </div>
         <select class="select" id="filter-area-admin">
-          <option value="">Todas las áreas</option>
+          <option value="">Todas las facultades</option>
         </select>
       </section>
 
@@ -73,11 +73,12 @@
           <thead>
             <tr>
               <th>Oferta</th>
-              <th>Área</th>
+              <th>Tipo</th>
+              <th>Facultad</th>
               <th>Modalidad</th>
               <th>Vacantes</th>
               <th>Destacada</th>
-              <th style="width:1%; white-space:nowrap;">Acciones</th>
+              <th class="text-right">Acciones</th>
             </tr>
           </thead>
           <tbody id="ofertas-tbody"></tbody>

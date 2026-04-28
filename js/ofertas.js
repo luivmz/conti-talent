@@ -11,11 +11,14 @@ const Ofertas = (() => {
   const filterByArea = (areaId) => list().filter((o) => o.areaId === areaId);
   const featured     = ()       => list().filter((o) => !!o.destacada);
 
+  const TIPOS = ['Práctica', 'Trabajo'];
+
   const create = (data) => {
     const items = list();
     const newItem = {
       id: Storage.generateId(),
       titulo: data.titulo.trim(),
+      tipo: data.tipo || 'Trabajo',
       areaId: data.areaId,
       modalidad: data.modalidad,
       ubicacion: data.ubicacion || '',
@@ -41,7 +44,7 @@ const Ofertas = (() => {
     Storage.write('preguntas', Storage.read('preguntas', []).filter((q) => q.ofertaId !== id));
   };
 
-  return { list, get, filterByArea, featured, create, update, remove };
+  return { list, get, filterByArea, featured, create, update, remove, TIPOS };
 })();
 
 window.Ofertas = Ofertas;

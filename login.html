@@ -29,23 +29,23 @@
   <main class="auth-shell">
     <aside class="auth-shell__art">
       <div class="auth-art-bubbles" aria-hidden="true">
-        <span style="background:#6366f1;width:280px;height:280px;left:-60px;top:10%;"></span>
-        <span style="background:#ec4899;width:220px;height:220px;right:-40px;bottom:10%;"></span>
-        <span style="background:#06b6d4;width:160px;height:160px;left:30%;bottom:0;"></span>
+        <span class="auth-bubble--login-1"></span>
+        <span class="auth-bubble--login-2"></span>
+        <span class="auth-bubble--login-3"></span>
       </div>
       <div class="auth-art-content anim-fade-up">
-        <span class="badge anim-pulse">Bienvenido de vuelta</span>
-        <h2 style="margin-top:16px;">Tu próxima oportunidad <em style="background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic">empieza aquí</em></h2>
-        <p>Ingresa para continuar con tu proceso de postulación, ver tu estado y resolver evaluaciones pendientes.</p>
+        <span class="badge anim-pulse">Universidad Continental</span>
+        <h2 class="mt-4">Tu próxima oportunidad <em>empieza aquí</em></h2>
+        <p>Ingresa para continuar con tu postulación, rendir tu evaluación o ver tu estado actual.</p>
       </div>
     </aside>
 
     <section class="auth-shell__form">
       <div class="auth-shell__form-inner anim-fade-up">
-        <h1 style="font-size:2rem">Iniciar sesión</h1>
+        <h1>Iniciar sesión</h1>
         <p class="muted">Usa tu cuenta de Conti Talent.</p>
 
-        <form id="login-form" class="form-grid" style="margin-top: 24px;" novalidate>
+        <form id="login-form" class="form-grid mt-5" novalidate>
           <div class="field">
             <label for="email">Correo electrónico</label>
             <input class="input" type="email" id="email" name="email" placeholder="tucorreo@email.com" autocomplete="email" />
@@ -59,12 +59,12 @@
           <button class="btn btn--primary btn--block btn--lg" type="submit">Iniciar sesión</button>
         </form>
 
-        <p class="soft" style="text-align:center;margin-top:24px;">¿No tienes cuenta? <a href="registro.html" style="color:var(--brand-300)">Regístrate</a></p>
+        <p class="soft text-center mt-5">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
 
-        <div class="card" style="margin-top:20px;font-size:.85rem;">
+        <div class="card demo-card mt-5">
           <strong>Cuentas demo</strong>
-          <div class="soft" style="margin-top:6px;">Admin: <code>admin@contitalent.com</code> / <code>admin123</code></div>
-          <div class="soft">Postulante: <code>lucia@example.com</code> / <code>lucia123</code></div>
+          <div class="soft">Admin: <span class="code">admin@contitalent.com</span> / <span class="code">admin123</span></div>
+          <div class="soft">Postulante: <span class="code">lucia@example.com</span> / <span class="code">lucia123</span></div>
         </div>
       </div>
     </section>

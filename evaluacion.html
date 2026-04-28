@@ -27,11 +27,11 @@
     </div>
   </header>
 
-  <main class="container" style="padding: 48px 24px 96px;">
+  <main class="container page-shell">
     <section class="quiz">
-      <header class="anim-fade-up" style="margin-bottom: 16px;">
+      <header class="anim-fade-up mb-4">
         <span class="badge" id="quiz-area">—</span>
-        <h1 id="quiz-title" style="margin-top: 8px;">—</h1>
+        <h1 id="quiz-title" class="mt-2">—</h1>
         <p class="muted">Responde todas las preguntas. Tu puntaje se calculará automáticamente.</p>
       </header>
 
@@ -39,13 +39,13 @@
         <span id="quiz-progress-text">0 / 0 respondidas</span>
         <span class="soft">Calificación automática</span>
       </div>
-      <div class="progress" style="margin-bottom: 24px;">
-        <div class="progress__bar" id="quiz-progress-bar" style="width: 0%"></div>
+      <div class="progress quiz-progress-wrap">
+        <div class="progress__bar" id="quiz-progress-bar"></div>
       </div>
 
       <form id="quiz-form" novalidate>
         <div id="quiz-questions"></div>
-        <div class="flex gap-3" style="justify-content: flex-end; margin-top: 24px;">
+        <div class="form-actions mt-5">
           <a href="mi-estado.html" class="btn btn--ghost">Guardar y salir</a>
           <button type="submit" class="btn btn--primary btn--lg">Enviar respuestas</button>
         </div>
@@ -55,7 +55,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__bottom">
-      <span>© 2026 Conti Talent</span>
+      <span>© 2026 Universidad Continental · Conti Talent</span>
     </div>
   </footer>
 

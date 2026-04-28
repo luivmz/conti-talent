@@ -24,6 +24,12 @@
     UI.$('#detalle-fecha').textContent     = UI.formatDate(oferta.creadaEn);
     UI.$('#detalle-descripcion').textContent = oferta.descripcion;
 
+    const tipoEl = UI.$('#detalle-tipo');
+    if (tipoEl) {
+      tipoEl.textContent = oferta.tipo || 'Trabajo';
+      tipoEl.className   = `badge ${oferta.tipo === 'Práctica' ? 'badge--evaluacion' : 'badge--aprobado-tecnico'}`;
+    }
+
     const reqList = UI.$('#detalle-requisitos');
     UI.clear(reqList);
     (oferta.requisitos || []).forEach((r) => reqList.appendChild(UI.el('li', { text: r })));

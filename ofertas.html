@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ofertas laborales · Conti Talent</title>
+  <title>Ofertas · Conti Talent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
@@ -21,21 +21,21 @@
         <span class="brand__name">Conti<span>Talent</span></span>
       </a>
       <nav class="primary-nav">
-        <a href="index.html"     data-nav="index.html">Inicio</a>
-        <a href="areas.html"     data-nav="areas.html">Áreas</a>
-        <a href="ofertas.html"   data-nav="ofertas.html" class="is-active">Ofertas</a>
-        <a href="publicidad.html"data-nav="publicidad.html">Publicidad</a>
-        <a href="contacto.html"  data-nav="contacto.html">Contacto</a>
+        <a href="index.html"      data-nav="index.html">Inicio</a>
+        <a href="areas.html"      data-nav="areas.html">Facultades</a>
+        <a href="ofertas.html"    data-nav="ofertas.html" class="is-active">Ofertas</a>
+        <a href="publicidad.html" data-nav="publicidad.html">Publicidad</a>
+        <a href="contacto.html"   data-nav="contacto.html">Contacto</a>
         <span class="session-area" id="session-area"></span>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 48px 24px 96px;">
+  <main class="container page-shell">
     <header class="page-header anim-fade-up">
       <div>
-        <h1 class="page-header__title">Ofertas laborales</h1>
-        <p class="page-header__sub">Filtra por área, modalidad o palabra clave.</p>
+        <h1 class="page-header__title">Ofertas de la Universidad Continental</h1>
+        <p class="page-header__sub">Filtra por tipo (prácticas o trabajo), facultad, modalidad o palabra clave.</p>
       </div>
     </header>
 
@@ -43,8 +43,11 @@
       <div class="searchbar">
         <input class="input" id="filter-search" type="search" placeholder="Buscar oferta..." />
       </div>
-      <select class="select" id="filter-area" aria-label="Área">
-        <option value="">Todas las áreas</option>
+      <select class="select" id="filter-tipo" aria-label="Tipo de oferta">
+        <option value="">Todos los tipos</option>
+      </select>
+      <select class="select" id="filter-area" aria-label="Facultad">
+        <option value="">Todas las facultades</option>
       </select>
       <select class="select" id="filter-modalidad" aria-label="Modalidad">
         <option value="">Todas las modalidades</option>
@@ -59,8 +62,8 @@
 
   <footer class="site-footer">
     <div class="container site-footer__bottom">
-      <span>© 2026 Conti Talent</span>
-      <span>Ofertas laborales</span>
+      <span>© 2026 Universidad Continental · Conti Talent</span>
+      <span>Huancayo · Junín · Perú</span>
     </div>
   </footer>
 

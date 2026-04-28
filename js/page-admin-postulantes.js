@@ -11,7 +11,88 @@
     document.getElementById('search-postulante').addEventListener('input', renderTable);
     document.getElementById('filter-oferta-postulante').addEventListener('change', renderTable);
     document.getElementById('filter-estado-postulante').addEventListener('change', renderTable);
+    const newBtn = document.getElementById('btn-nuevo-postulante');
+    if (newBtn) newBtn.addEventListener('click', openCreate);
     renderTable();
+  };
+
+  /**
+   * Crea un postulante a partir de un usuario existente y una oferta.
+   * El postulante después puede entrar con su cuenta a rendir el examen.
+   */
+  const openCreate = () => {
+    const postulantesUsers = Usuarios.list().filter((u) => u.rol === 'postulante' && u.activo);
+    if (postulantesUsers.length === 0) {
+      UI.showToast('Primero crea un usuario con rol postulante', 'error');
+      return;
+    }
+    if (Ofertas.list().length === 0) {
+      UI.showToast('Primero crea al menos una oferta', 'error');
+      return;
+    }
+
+    const usuarioSel = UI.el('select', { class: 'select', name: 'usuarioId' });
+    usuarioSel.appendChild(UI.el('option', { value: '', text: '— Selecciona un usuario —' }));
+    postulantesUsers.forEach((u) => {
+      usuarioSel.appendChild(UI.el('option', { value: u.id, text: `${u.nombre} ${u.apellido} (${u.email})` }));
+    });
+
+    const ofertaSel = UI.el('select', { class: 'select', name: 'ofertaId' });
+    ofertaSel.appendChild(UI.el('option', { value: '', text: '— Selecciona una oferta —' }));
+    Ofertas.list().forEach((o) => {
+      ofertaSel.appendChild(UI.el('option', { value: o.id, text: `${o.titulo} · ${o.tipo || 'Trabajo'}` }));
+    });
+
+    const telefonoInput    = UI.el('input',    { class: 'input',    name: 'telefono',    placeholder: '+51 ...' });
+    const experienciaInput = UI.el('textarea', { class: 'textarea', name: 'experiencia', placeholder: 'Experiencia profesional o académica' });
+    const habilidadesInput = UI.el('textarea', { class: 'textarea', name: 'habilidades', placeholder: 'Habilidades clave' });
+    const cvInput          = UI.el('input',    { class: 'input',    name: 'cv',          placeholder: 'archivo_cv.pdf' });
+
+    const form = UI.el('form', { class: 'form-grid' }, [
+      UI.el('div', { class: 'field' }, [
+        UI.el('label', { text: 'Usuario postulante' }),
+        usuarioSel,
+        UI.el('span', { class: 'hint', text: 'El postulante usará esta cuenta para iniciar sesión y rendir el examen.' })
+      ]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Oferta a la que postula' }), ofertaSel]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Teléfono' }), telefonoInput]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Experiencia' }), experienciaInput]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Habilidades' }), habilidadesInput]),
+      UI.el('div', { class: 'field' }, [UI.el('label', { text: 'Nombre del archivo CV' }), cvInput])
+    ]);
+
+    const submit = UI.el('button', { class: 'btn btn--primary', text: 'Crear postulante' });
+    const footer = UI.el('footer', { class: 'form-actions' }, [submit]);
+    const m = UI.openModal({ title: 'Nuevo postulante', content: form, footer });
+
+    submit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const usuarioId = usuarioSel.value;
+      const ofertaId  = ofertaSel.value;
+      if (!usuarioId) { UI.showToast('Selecciona un usuario', 'error'); return; }
+      if (!ofertaId)  { UI.showToast('Selecciona una oferta', 'error');  return; }
+
+      const yaExiste = Postulantes.list().some((p) => p.usuarioId === usuarioId && p.ofertaId === ofertaId);
+      if (yaExiste) {
+        UI.showToast('Este usuario ya postuló a esta oferta', 'error');
+        return;
+      }
+
+      const usuario = Usuarios.get(usuarioId);
+      Postulantes.create({
+        usuarioId,
+        ofertaId,
+        nombre:      `${usuario.nombre} ${usuario.apellido}`,
+        email:       usuario.email,
+        telefono:    telefonoInput.value.trim(),
+        experiencia: experienciaInput.value.trim(),
+        habilidades: habilidadesInput.value.trim(),
+        cv:          cvInput.value.trim() || `${usuario.email}_cv.pdf`
+      });
+      UI.showToast('Postulante creado · podrá rendir el examen al iniciar sesión', 'success');
+      m.close();
+      renderTable();
+    });
   };
 
   const populateFilters = () => {
